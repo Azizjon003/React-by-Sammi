@@ -1,0 +1,7 @@
+.movieList {
+  background-color: rgb(251, 248, 245);
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 5px;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.15);
+}
