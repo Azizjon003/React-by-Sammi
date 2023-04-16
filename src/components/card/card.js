@@ -1,7 +1,6 @@
 import "./card.css";
 
 function Card({ name, views, favourite }) {
-  console.log(favourite);
   return (
     <div
       className={`d-flex justify-content-between align-items-center p-2 mt-2 

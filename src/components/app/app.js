@@ -11,16 +11,19 @@ const App = () => {
       name: "Ertugrul",
       views: 1000,
       favourite: true,
+      id: 1,
     },
     {
       name: "Novda",
       views: 500,
       favourite: false,
+      id: 2,
     },
     {
       name: "Doktor",
       views: 200,
       favourite: false,
+      id: 3,
     },
   ];
   return (
