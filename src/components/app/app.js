@@ -4,7 +4,25 @@ import Form from "../form/form";
 import Button from "../button/button";
 import MovieList from "../movie-list/movie-list";
 import Addmovie from "../addmovie/addmovie";
+
 const App = () => {
+  const data = [
+    {
+      name: "Ertugrul",
+      views: 1000,
+      favourite: true,
+    },
+    {
+      name: "Novda",
+      views: 500,
+      favourite: false,
+    },
+    {
+      name: "Doktor",
+      views: 200,
+      favourite: false,
+    },
+  ];
   return (
     <div className="main-div container mt-5 text-monospace">
       <div>
@@ -14,7 +32,7 @@ const App = () => {
         <Form />
         <Button />
       </div>
-      <MovieList />
+      <MovieList data={data} />
 
       <Addmovie />
     </div>
