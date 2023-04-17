@@ -38,8 +38,7 @@ class App extends Component {
       data: prevState.data.filter((item) => item.id !== id),
     }));
   };
-  addMovie = (e, data) => {
-    e.preventDefault();
+  addMovie = (data) => {
     let newData = {
       name: data.name,
       views: data.views,

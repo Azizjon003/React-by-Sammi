@@ -15,7 +15,13 @@ class FormMovie extends Component {
     });
   };
   onSave = (e) => {
-    this.props.addMovie(e, this.state);
+    e.preventDefault();
+
+    this.props.addMovie(this.state);
+    this.setState({
+      name: "",
+      views: "",
+    });
   };
   render() {
     return (
@@ -30,6 +36,7 @@ class FormMovie extends Component {
             className="p-2 flex-fill"
             onChange={this.onAll}
             name="name"
+            value={this.state.name}
           />
           <input
             type="number"
@@ -37,6 +44,7 @@ class FormMovie extends Component {
             className="p-2 flex-fill"
             onChange={this.onAll}
             name="views"
+            value={this.state.views}
           />
         </div>
         <button type="submit" className="btn btn-outline-dark flex-fill">
