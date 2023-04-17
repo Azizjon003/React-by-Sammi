@@ -12,8 +12,10 @@ class Card extends Component {
       favourite: !prevState.favourite,
     }));
   };
+
   render() {
-    const { name, views } = this.props;
+    const { name, views, onDelete } = this.props;
+
     const { favourite } = this.state;
     return (
       <div
@@ -27,26 +29,11 @@ class Card extends Component {
             className="fas fa-cookie-bite cookie-card"
             onClick={this.onFavourite}
           ></i>
-          <i className="fas fa-trash trash-card "></i>
+          <i className="fas fa-trash trash-card" onClick={onDelete}></i>
         </div>
       </div>
     );
   }
 }
-// function Card({ name, views, favourite }) {
-//   return (
-//     <div
-//       className={`d-flex justify-content-between align-items-center p-2 mt-2
-//     card-container ${favourite ? "favourite" : ""}`}
-//     >
-//       <p className="flex-grow-1 m-0">{name}</p>
-//       <input type="number" defaultValue={views} className="input-card" />
-//       <div className="d-flex align-items-center ">
-//         <i className="fas fa-cookie-bite cookie-card"></i>
-//         <i className="fas fa-trash trash-card "></i>
-//       </div>
-//     </div>
-//   );
-// }
 
 export default Card;

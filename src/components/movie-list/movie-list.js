@@ -9,6 +9,7 @@ function MovieList(data) {
           name={item.name}
           views={item.views}
           favourite={item.favourite}
+          onDelete={() => data.onDelete(item.id)}
         />
       ))}
     </div>
