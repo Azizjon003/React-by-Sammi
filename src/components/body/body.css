@@ -1,0 +1,29 @@
+.div {
+  width: 100vw;
+  height: 80vh;
+  background-color: purple;
+}
+
+.formcha {
+  display: flex;
+  justify-content: center;
+  background-color: purple;
+  gap: 3rem;
+  padding: 2rem;
+}
+button {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  border: none;
+  background-color: green;
+  color: white;
+}
+.count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: purple;
+  height: 10vh;
+  font-size: 2rem;
+  color: white;
+}
