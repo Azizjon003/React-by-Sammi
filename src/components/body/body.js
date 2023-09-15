@@ -1,5 +1,5 @@
 import { Component } from "react";
-import "./body.css";
+import "./body.scss";
 class Body extends Component {
   constructor(props) {
     super(props);
@@ -27,10 +27,10 @@ class Body extends Component {
     }));
   };
 
-  ResetBtn = (e) => {
+  ResetBtn = (e, data) => {
     e.preventDefault();
     console.log("The link was clicked.");
-
+    console.log(data);
     this.setState((prevState) => ({
       count: 0,
     }));
@@ -46,7 +46,10 @@ class Body extends Component {
           <button className="button" onClick={this.DownBtn}>
             Down
           </button>
-          <button className="button" onClick={this.ResetBtn}>
+          <button
+            className="button"
+            onClick={(e) => this.ResetBtn(e, { name: "Jamshid" })}
+          >
             Reset
           </button>
         </form>
