@@ -1,47 +1,46 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import Item from "../item/item.js";
 
-const User = ({ firstname, lastname, link }) => {
-  const [age, setAge] = useState(21);
+const User = () => {
   const [count, setCount] = useState(0);
+  const [active, setActive] = useState(true);
 
+  const color = {
+    color: active ? "red" : "green",
+    fontWeight: 700,
+  };
   const increment = () => {
     // setCount(count + 1);
     setCount((prevCount) => prevCount + 1);
   };
 
-  const decrement = () => {
-    if (count > 0) {
-      // setCount(count - 1);
-      setCount((prevCount) => prevCount - 1);
-    }
+  const toogleFunction = () => {
+    setActive((prevState) => !prevState);
   };
 
-  const reset = () => {
-    // setCount(0);
-    setCount((prevCount) => 0);
-  };
+  const generateRandomArray = useCallback(() => {
+    return Array(count)
+      .fill(" ")
+      .map((item, index) => `Item ${index + 1}`);
+  }, [count]);
+
   return (
     <>
       <div className="w-50 mx-auto">
         <div className="border p-3 my-5">
-          <h1>
-            Mening ismim - {firstname},sharifim - {lastname} yosh - {age}
-          </h1>
-          <a href={link}> Youtube Kanalim</a>
-          <p className="text-center">{count}</p>
+          <p className="text-center" style={color}>
+            User activited : {count}
+          </p>
           <div className="d-flex justify-content-center">
             <button className="btn btn-success" onClick={increment}>
-              +
+              Increase
             </button>
-            <button className="btn btn-danger mx-2" onClick={decrement}>
-              -
-            </button>
-
-            <button className="btn btn-dark" onClick={reset}>
-              {" "}
-              0{" "}
+            <button className="btn btn-warning mx-2" onClick={toogleFunction}>
+              Toogle
             </button>
           </div>
+
+          <Item generateRandomArray={generateRandomArray} />
         </div>
       </div>
     </>

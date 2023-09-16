@@ -5,7 +5,6 @@ class App extends Component {
     return (
       <>
         <User lastname={"Aliqulov"} firstname={"Azizjon"} link={"azizjon.uz"} />
-        <User lastname={"Esanov"} firstname={"Jamshid"} link={"azizjon.uz"} />
       </>
     );
   }
