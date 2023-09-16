@@ -4,7 +4,8 @@ class App extends Component {
   render() {
     return (
       <>
-        <User lastname={"Aliqulov"} firstname={"Azizjon"} link={"azizjon.uz"} />
+        <User />
+        <User />
       </>
     );
   }
