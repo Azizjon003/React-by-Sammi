@@ -1,5 +1,5 @@
 import "./card.css";
-import { Component, useState } from "react";
+import { useState } from "react";
 // class Card extends Component {
 //   constructor(props) {
 //     super(props);

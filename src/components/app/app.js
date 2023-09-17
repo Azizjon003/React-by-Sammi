@@ -3,7 +3,7 @@ import Title from "../title/title";
 import Form from "../form/form";
 import Button from "../button/button";
 import MovieList from "../movie-list/movie-list";
-import { Component, useState } from "react";
+import { useEffect, useState } from "react";
 import Addmovie from "../addmovie/addmovie";
 import { v4 as uuidv4 } from "uuid";
 
@@ -71,26 +71,7 @@ import { v4 as uuidv4 } from "uuid";
 
 const App = () => {
   const [data, setData] = useState({
-    data: [
-      {
-        name: "Ertugrul",
-        views: 1000,
-        favourite: true,
-        id: 1,
-      },
-      {
-        name: "Novda",
-        views: 500,
-        favourite: false,
-        id: 2,
-      },
-      {
-        name: "Doktor",
-        views: 200,
-        favourite: false,
-        id: 3,
-      },
-    ],
+    data: [],
   });
 
   const onDelete = (id) => {
@@ -115,6 +96,26 @@ const App = () => {
   const length = () => {
     return data.data.length;
   };
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/todos?_limit=10")
+      .then((res) => res.json())
+      .then((res) => {
+        const newArr = res.map((item) => {
+          return {
+            name: item.title,
+            views: item.id * Math.floor(Math.random() * 100),
+            favourite: false,
+            id: item.id,
+          };
+        });
+
+        setData({
+          data: newArr,
+        });
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <div className="main-div container mt-5 text-monospace">

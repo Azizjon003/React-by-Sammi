@@ -1,5 +1,5 @@
 import "./form-movie.css";
-import { Component, useState } from "react";
+import { useState } from "react";
 // class FormMovie extends Component {
 //   constructor(props) {
 //     super(props);
