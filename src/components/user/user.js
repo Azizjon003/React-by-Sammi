@@ -1,46 +1,31 @@
-import { useCallback, useEffect, useState } from "react";
-import Item from "../item/item.js";
+import useInputValidation from "../../hook/useInputValidate.js";
 
 const User = () => {
-  const [count, setCount] = useState(0);
-  const [active, setActive] = useState(true);
-
-  const color = {
-    color: active ? "red" : "green",
-    fontWeight: 700,
-  };
-  const increment = () => {
-    // setCount(count + 1);
-    setCount((prevCount) => prevCount + 1);
-  };
-
-  const toogleFunction = () => {
-    setActive((prevState) => !prevState);
-  };
-
-  const generateRandomArray = useCallback(() => {
-    return Array(count)
-      .fill(" ")
-      .map((item, index) => `Item ${index + 1}`);
-  }, [count]);
+  const firsName = useInputValidation("");
+  const lastName = useInputValidation("");
 
   return (
     <>
       <div className="w-50 mx-auto">
         <div className="border p-3 my-5">
-          <p className="text-center" style={color}>
-            User activited : {count}
-          </p>
-          <div className="d-flex justify-content-center">
-            <button className="btn btn-success" onClick={increment}>
-              Increase
-            </button>
-            <button className="btn btn-warning mx-2" onClick={toogleFunction}>
-              Toogle
-            </button>
+          <p className="text-center fs-3">Register</p>
+          <div className="d-flex gap-3">
+            <input
+              type="text"
+              className={`form-control ${firsName.color}`}
+              placeholder="First name"
+              value={firsName.value}
+              onChange={firsName.onChange}
+            />
+            <input
+              type="text"
+              className={`form-control ${lastName.color}`}
+              placeholder="Last name"
+              value={lastName.value}
+              onChange={lastName.onChange}
+            />
           </div>
-
-          <Item generateRandomArray={generateRandomArray} />
+          <button className="mt-3 btn btn-success">Send Data</button>
         </div>
       </div>
     </>
